@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 20:25:57 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:48:39 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:57:53 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_mlx_start(t_msweeper *ms)
 			&ms->img.bpp,
 			&ms->img.size_line,
 			&ms->img.endian);
-	print_map(ms);
+	// print_map(ms);
 	update_frame(ms);
 	mlx_hook(ms->win, 2, (1L << 0), handle_key_press, ms);
 	// mlx_hook(ms->win, 3, (1L << 1), handle_key_release, ms);
