@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 19:56:20 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:19:39 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:49:28 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@
 #  define EVT_RED_CROSS 33
 # endif
 
+# define LEFT_CLICK      1
+# define RIGHT_CLICK     2
+
 /*
 ** Bonus Macros
 ** Defined at compile time if wanted / needed
@@ -75,7 +78,6 @@
 # define MEDIUM_BOMB_RATIO   0.18
 # define HARD_BOMB_RATIO     0.35
 # define DEFAULT_BOMB_RATIO  MEDIUM_BOMB_RATIO
-
 
 # define TEXTURE_BOMB   "./assets/bomb.xpm"
 # define TEXTURE_FLAG   "./assets/flag.xpm"
@@ -111,6 +113,7 @@ enum
 {
 	MODE_HIDDEN,
 	MODE_VISIBLE,
+	MODE_FLAG
 };
 
 /*
@@ -136,11 +139,10 @@ typedef struct s_sounds
 	clock_t	sprite_last_hit_time;
 }				t_sounds;
 
-
-typedef struct	s_map_type
+typedef struct __attribute__((packed)) s_map_type
 {
 	unsigned char	c;
-	bool			mode;
+	unsigned char	mode : 2;
 }				t_map_type;
 
 /*

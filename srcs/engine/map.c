@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:56:58 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:04:52 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:42:39 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static t_img	*__get_texture__(t_msweeper *ms, char c)
 {
 	static const struct s_lookup_texture	g_lookup_txtrs[] = {
 		{'B', TXTR_BOMB},
-		{'F', TXTR_FLAG},
 		{'0', TXTR_EMPTY},
 		{'1', TXTR_NUM_1},
 		{'2', TXTR_NUM_2},
@@ -95,13 +94,11 @@ static void	put_map(t_msweeper *ms)
 		while (map[y][x].c)
 		{
 			if (map[y][x].mode == MODE_HIDDEN)
-			{
 				__put_texture__(ms, x, y, &ms->txtrs[TXTR_HIDDEN]);
-			}
+			else if (map[y][x].mode == MODE_FLAG)
+				__put_texture__(ms, x, y, &ms->txtrs[TXTR_FLAG]);
 			else
-			{
 				__put_texture__(ms, x, y, __get_texture__(ms, map[y][x].c));
-			}
 			++x;
 		}
 		++y;

@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 20:25:57 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:08:58 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:48:39 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	place_nbrs(t_msweeper *ms)
 		x = 0;
 		while (x < ms->map_size_x)
 		{
-			// ms->map[y][x].mode = MODE_HIDDEN;
-			ms->map[y][x].mode = MODE_VISIBLE;
+			ms->map[y][x].mode = MODE_HIDDEN;
+			// ms->map[y][x].mode = MODE_VISIBLE;
 			if ('B' != ms->map[y][x].c)
 			{
 				ms->map[y][x].c = get_bombs_nbr(ms, x, y) + '0';

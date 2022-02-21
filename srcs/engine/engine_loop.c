@@ -6,11 +6,31 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 00:02:16 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:07:48 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:50:38 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minesweeper.h"
+
+int	check_win(t_msweeper *ms)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < ms->map_size_y)
+	{
+		x = 0;
+		while (x < ms->map_size_x)
+		{
+			if (ms->map[y][x].c == 'B')
+				return (FALSE);
+			++x;
+		}
+		++y;
+	}
+	return (TRUE);
+}
 
 void	update_frame(t_msweeper *ms)
 {
