@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:56:58 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:42:39 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 00:25:29 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ struct s_lookup_texture
 	int	texture_char;
 	int	texture_id;
 };
-
-struct	s_textures
-{
-	int		id;
-	char	*path;
-};
-
 
 static t_img	*__get_texture__(t_msweeper *ms, char c)
 {
