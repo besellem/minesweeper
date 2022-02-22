@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 19:56:20 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/22 16:30:44 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:37:13 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,9 +143,7 @@ typedef struct s_msweeper
 	int			map_size_y;
 	void		*mlx;
 	void		*win;
-	int			collectibles;
 	float		bombs_ratio;
-	size_t		move_nbr;
 	t_img		img;
 	t_img		txtrs[__TXTR_MAX__];
 }				t_msweeper;

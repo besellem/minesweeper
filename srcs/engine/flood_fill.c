@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:24:27 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/22 17:31:17 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:35:31 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ static bool	_flood_fill(t_msweeper *ms, char **fill, int x, int y)
 
 static char	**_create_fill(t_msweeper *ms)
 {
-	char	**ptr = ft_calloc(ms->map_size_y + 1, sizeof(char *));
+	char	**ptr;
 	int		i;
 
+	ptr = ft_calloc(ms->map_size_y + 1, sizeof(char *));
 	if (!ptr)
 		return (NULL);
 	i = 0;
@@ -60,8 +61,9 @@ static char	**_create_fill(t_msweeper *ms)
 
 void	flood_fill_wrapper(t_msweeper *ms, int x, int y)
 {
-	char	**fill = _create_fill(ms);
+	char	**fill;
 
+	fill = _create_fill(ms);
 	if (!fill)
 		_error("malloc error", ms, __FILE__, __LINE__);
 	_flood_fill(ms, fill, x, y);

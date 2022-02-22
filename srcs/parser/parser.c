@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 21:31:15 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:23:00 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:35:41 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ static void	parse_args(int ac, char **av, t_msweeper *ms)
 	ms->map_size_x = board_size;
 	ms->map_size_y = board_size;
 }
-
 
 int	ft_parse(int ac, char **av, t_msweeper *ms)
 {
