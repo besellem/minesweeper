@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 00:56:58 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/22 00:25:29 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 13:47:00 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	__put_texture__(t_msweeper *ms, int x, int y, t_img *txtr)
 	}
 }
 
-static void	put_map(t_msweeper *ms)
+void	display(t_msweeper *ms)
 {
 	const t_map_type	**map = (const t_map_type **)ms->map;
 	int					x;
@@ -96,9 +96,4 @@ static void	put_map(t_msweeper *ms)
 		}
 		++y;
 	}
-}
-
-void	display_minimap(t_msweeper *ms)
-{
-	put_map(ms);
 }

@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 19:56:20 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/21 23:49:28 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:30:44 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@
 /*
 ** -- DEFINES --
 */
-# define ERR                 "\033[1;31mError\033[0m"
+# define MIN_BOARD_SIZE      5
+# define MAX_BOARD_SIZE      40
 # define DEFAULT_BOARD_SIZE  16
-# define MAP_CHARSET         "01CEP"
 
-# define DIR_NORTH      0
-# define DIR_SOUTH      1
-# define DIR_EAST       2
-# define DIR_WEST       3
+# define EASY_BOMB_RATIO     0.06
+# define MEDIUM_BOMB_RATIO   0.18
+# define HARD_BOMB_RATIO     0.35
+# define DEFAULT_BOMB_RATIO  MEDIUM_BOMB_RATIO
 
 /*
 ** Key mapping for macOS & Linux envs
@@ -62,22 +62,6 @@
 
 # define LEFT_CLICK      1
 # define RIGHT_CLICK     2
-
-/*
-** Bonus Macros
-** Defined at compile time if wanted / needed
-*/
-# ifndef BONUS
-#  define BONUS 0
-# endif
-
-# define MIN_BOARD_SIZE      5
-# define MAX_BOARD_SIZE      40
-
-# define EASY_BOMB_RATIO     0.06
-# define MEDIUM_BOMB_RATIO   0.18
-# define HARD_BOMB_RATIO     0.35
-# define DEFAULT_BOMB_RATIO  MEDIUM_BOMB_RATIO
 
 # define TEXTURE_BOMB   "./assets/bomb.xpm"
 # define TEXTURE_FLAG   "./assets/flag.xpm"
@@ -133,12 +117,6 @@ typedef struct s_img
 	char	*addr;
 }				t_img;
 
-typedef struct s_sounds
-{
-	clock_t	sound_time;
-	clock_t	sprite_last_hit_time;
-}				t_sounds;
-
 typedef struct __attribute__((packed)) s_map_type
 {
 	unsigned char	c;
@@ -177,7 +155,6 @@ typedef struct s_msweeper
 ** Common
 */
 void			print_map(t_msweeper *ms);
-int				ft_save(t_msweeper *ms);
 
 /*
 ** Others
@@ -189,12 +166,12 @@ void			ft_free_all(t_msweeper *ms);
 ** Parser & Checkers
 */
 int				ft_parse(int ac, char **av, t_msweeper *ms);
+void			generate_board(t_msweeper *ms);
 
 /*
 ** Events
 */
 int				handle_key_press(int key, t_msweeper *ms);
-int				handle_key_release(int key, t_msweeper *ms);
 int				handle_mouse_hook(int key, int x, int y, t_msweeper *ms);
 void			_error(char *err, t_msweeper *ms, char *file, int line);
 void			ft_quit(t_msweeper *ms);
@@ -206,11 +183,7 @@ int				ft_red_cross(t_msweeper *ms);
 void			ft_pixel_put(t_msweeper *ms, int x, int y, uint32_t color);
 void			update_frame(t_msweeper *ms);
 int				engine_loop(t_msweeper *ms);
-
-/*
-** Bonus
-*/
-void			init_bonus(t_msweeper *ms);
-void			display_minimap(t_msweeper *ms);
+void			flood_fill_wrapper(t_msweeper *ms, int x, int y);
+void			display(t_msweeper *ms);
 
 #endif

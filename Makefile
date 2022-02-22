@@ -6,7 +6,7 @@
 #    By: besellem <besellem@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/09 20:27:25 by besellem          #+#    #+#              #
-#    Updated: 2022/02/21 22:18:19 by besellem         ###   ########.fr        #
+#    Updated: 2022/02/22 16:29:48 by besellem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ SRCS		=	$(PATH_SRCS)/$(PATH_COMMON)/free_all.c \
 				$(PATH_SRCS)/$(PATH_COMMON)/utils.c \
 				$(PATH_SRCS)/$(PATH_ENGINE)/display.c \
 				$(PATH_SRCS)/$(PATH_ENGINE)/engine_loop.c \
+				$(PATH_SRCS)/$(PATH_ENGINE)/flood_fill.c \
 				$(PATH_SRCS)/$(PATH_ENGINE)/map.c \
 				$(PATH_SRCS)/$(PATH_EVENTS)/handle_keys.c \
 				$(PATH_SRCS)/$(PATH_EVENTS)/quit_events.c \
+				$(PATH_SRCS)/$(PATH_PARSER)/generate_board.c \
 				$(PATH_SRCS)/$(PATH_PARSER)/parser.c \
 				$(PATH_SRCS)/main.c
 
