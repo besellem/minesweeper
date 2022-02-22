@@ -6,7 +6,7 @@
 /*   By: besellem <besellem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:24:27 by besellem          #+#    #+#             */
-/*   Updated: 2022/02/22 16:24:49 by besellem         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:31:17 by besellem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static bool	_flood_fill(t_msweeper *ms, char **fill, int x, int y)
 	_flood_fill(ms, fill, x - 1, y);
 	_flood_fill(ms, fill, x, y + 1);
 	_flood_fill(ms, fill, x, y - 1);
+	_flood_fill(ms, fill, x - 1, y - 1);
+	_flood_fill(ms, fill, x - 1, y + 1);
+	_flood_fill(ms, fill, x + 1, y + 1);
+	_flood_fill(ms, fill, x + 1, y - 1);
 	return (true);
 }
 
